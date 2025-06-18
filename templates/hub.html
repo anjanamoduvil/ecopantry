@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EcoPantry - Hub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/hub-style.css') }}">
+</head>
+<body>
+  <div class="glass-container">
+    <nav>
+      <div class="logo">EcoPantry</div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('fridge') }}">Home</a></li>
+        <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
+        <li><a href="{{ url_for('share') }}">Share</a></li>
+        <li><a href="{{ url_for('zero_waste') }}">Tips</a></li>
+      </ul>
+    </nav>
+
+    <h1 class="main-title">What would you like to do today?</h1>
+
+    <div class="hub-grid">
+      <div class="hub-card">
+        <img src="{{ url_for('static', filename='images/recipes.png') }}" alt="Recipes">
+        <h2><a href="{{ url_for('recipes') }}">Cooking Recipes</a></h2>
+        <p>Find creative recipes using your kitchen ingredients.</p>
+      </div>
+      <div class="hub-card">
+        <img src="{{ url_for('static', filename='images/share.png') }}" alt="Share">
+        <h2><a href="{{ url_for('share') }}">Share Recipe</a></h2>
+        <p>Help others by sharing your delicious ideas.</p>
+      </div>
+      <div class="hub-card">
+        <img src="{{ url_for('static', filename='images/tips.jpg') }}" alt="Tips">
+        <h2><a href="{{ url_for('zero_waste') }}">Zero-Waste Recipes</a></h2>
+        <p>Learn eco-friendly ways to reduce food waste.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zero-Waste Tips - EcoPantry</title>
+  <link rel="stylesheet" href="zero-style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="glass-container">
+    <nav class="navbar">
+      <div class="logo">EcoPantry</div>
+      <ul class="nav-links">
+        <li><a href="fridge.html">Home</a></li>
+        <li><a href="hub.html">Back</a></li>
+      </ul>
+    </nav>
+
+    <header class="fade-in">
+      <h1>Smart Cooking with What You Have</h1>
+      <p>Enter your available ingredients to get zero-waste recipe ideas!</p>
+    </header>
+
+    <form class="ingredient-form fade-in" id="ingredientForm">
+      <label for="ingredients">Available Ingredients</label>
+      <textarea id="ingredients" placeholder="e.g. rice, tomato, onion" required></textarea>
+      <button type="submit">Find Recipes</button>
+    </form>
+
+    <div id="recipeResults" class="fade-in results"></div>
+  </div>
+
+  <script src="zero.js"></script>
+</body>
+</html>

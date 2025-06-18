@@ -1,0 +1,114 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+  margin: 0;
+  padding: 0;
+}
+
+.glass-container {
+  margin: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #00796b;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #004d40;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #1de9b6;
+}
+
+header {
+  text-align: center;
+  padding: 30px 20px 10px;
+}
+
+header h1 {
+  font-size: 32px;
+  color: #00695c;
+}
+
+.ingredient-form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ingredient-form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  resize: vertical;
+  border: 1px solid #ccc;
+}
+
+.ingredient-form button {
+  padding: 12px;
+  background-color: #00796b;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.ingredient-form button:hover {
+  background-color: #004d40;
+}
+
+.results {
+  max-width: 600px;
+  margin: 30px auto;
+  background: #ffffffbb;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 150, 136, 0.2);
+}
+
+.results h3 {
+  color: #00796b;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.9s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

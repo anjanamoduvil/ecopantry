@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cooking Recipes - EcoPantry</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/recipes-style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="glass-container">
+    <nav class="navbar">
+      <div class="logo">EcoPantry</div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('fridge') }}">Home</a></li>
+        <li><a href="{{ url_for('hub') }}">Back</a></li>
+      </ul>
+    </nav>
+
+    <header class="fade-in">
+      <h1>Discover Your Dish</h1>
+      <p>Search by food name and cook smart with what you have!</p>
+      <input type="text" id="searchInput" placeholder="Search for a recipe..." />
+      <p id="noResults" style="display: none; color: red; font-weight: bold;">No recipe found</p>
+    </header>
+
+    <section class="recipes" id="recipeList">
+      {% for recipe in recipes %}
+        <div class="recipe-card" data-name="{{ recipe.name | lower }}">
+          <a href="{{ recipe.page }}">
+            <img src="{{ url_for('static', filename='images/' + recipe.filename) }}" alt="{{ recipe.name }}">
+            <h3>{{ recipe.name }}</h3>
+            <p>{{ recipe.desc }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </section>
+  </div>
+  <script src="{{ url_for('static', filename='css/js/recipes.js') }}"></script>
+</body>
+</html>
+<script>
+  const searchInput = document.getElementById("searchInput");
+  const recipeList = document.getElementById("recipeList");
+  const noResults = document.getElementById("noResults");
+
+  searchInput.addEventListener("input", async function () {
+    const query = this.value.trim().toLowerCase();
+    if (!query) {
+      document.querySelectorAll(".recipe-card").forEach(card => card.style.display = "block");
+      noResults.style.display = "none";
+      return;
+    }
+
+    const res = await fetch(/search_recipe?query=${encodeURIComponent(query)});
+    const data = await res.json();
+
+    document.querySelectorAll(".recipe-card").forEach(card => {
+      const name = card.getAttribute("data-name").toLowerCase();
+      card.style.display = name.includes(query) ? "block" : "none";
+    });
+
+    noResults.style.display = data.found ? "none" : "block";
+  });
+</script>

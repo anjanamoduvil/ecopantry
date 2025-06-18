@@ -1,0 +1,121 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+  color: #333;
+}
+
+.glass-container {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.7);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #00796b;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #004d40;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #1de9b6;
+}
+
+header {
+  text-align: center;
+  padding: 30px 20px 10px;
+}
+
+header h1 {
+  font-size: 32px;
+  color: #00695c;
+}
+
+.share-form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.share-form label {
+  font-weight: bold;
+  color: #004d40;
+}
+
+.share-form input,
+.share-form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.share-form input[type="file"] {
+  font-size: 16px;
+  padding: 10px 0;
+  border: none;
+}
+
+.share-form button {
+  padding: 12px;
+  background-color: #00796b;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.share-form button:hover {
+  background-color: #004d40;
+}
+
+.confirmation-message {
+  text-align: center;
+  color: green;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.9s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

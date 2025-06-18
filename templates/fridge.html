@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoPantry - Fresh Start</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="glass-container">
+    <nav>
+      <div class="logo">EcoPantry</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#recipes">Recipes</a></li>
+        <li><a href="#share">Share</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Cook Smart. Waste Less.</h1>
+        <p>EcoPantry helps you make magic with what’s already in your kitchen.</p>
+        <a href="{{ url_for('hub') }}" class="cta-button">Explore Recipes</a>
+      </div>
+
+      <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/eco.png') }}" alt="Eco cooking graphic" />
+      </div>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
