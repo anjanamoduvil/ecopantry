@@ -24,8 +24,8 @@ recipes_data = [
 ]
 
 @app.route('/')
-def fridge():
-    return render_template('fridge.html')
+def index():
+    return render_template('index.html')
 
 @app.route('/hub')
 def hub():
