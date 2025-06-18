@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zero-Waste Tips - EcoPantry</title>
-  <link rel="stylesheet" href="zero-style.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/zero-style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -31,6 +31,6 @@
     <div id="recipeResults" class="fade-in results"></div>
   </div>
 
-  <script src="zero.js"></script>
+  <script src="{{ url_for('static', filename='css/js/zero.js') }}"></script>
 </body>
 </html>

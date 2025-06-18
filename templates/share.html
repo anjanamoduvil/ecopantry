@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Share Your Recipe - EcoPantry</title>
-  <link rel="stylesheet" href="share-style.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/share-style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -12,8 +12,8 @@
     <nav class="navbar">
       <div class="logo">EcoPantry</div>
       <ul class="nav-links">
-        <li><a href="fridge.html">Home</a></li>
-        <li><a href="hub.html">Back</a></li>
+        <li><a href="{{ url_for('fridge') }}">Home</a></li>
+        <li><a href="{{ url_for('hub') }}">Back</a></li>
       </ul>
     </nav>
 
@@ -22,21 +22,21 @@
       <p>Inspire others with your smart, zero-waste cooking ideas!</p>
     </header>
 
-    <form class="share-form fade-in" id="recipeForm">
+    <form class="share-form fade-in" method="POST" action="{{ url_for('share') }}" enctype="multipart/form-data">
       <label for="name">Your Name</label>
-      <input type="text" id="name" placeholder="Enter your name" required />
+      <input type="text" id="name" name="name" placeholder="Enter your name" required />
 
       <label for="title">Recipe Title</label>
-      <input type="text" id="title" placeholder="Give your recipe a name" required />
+      <input type="text" id="title" name="title" placeholder="Give your recipe a name" required />
 
       <label for="ingredients">Ingredients</label>
-      <textarea id="ingredients" placeholder="List ingredients here..." required></textarea>
+      <textarea id="ingredients" name="ingredients" placeholder="List ingredients here..." required></textarea>
 
       <label for="instructions">Instructions</label>
-      <textarea id="instructions" placeholder="Describe how to make it..." required></textarea>
+      <textarea id="instructions" name="instructions" placeholder="Describe how to make it..." required></textarea>
 
       <label for="video">Upload a Cooking Video/photo (optional)</label>
-      <input type="file" id="video" accept="video/*" />
+      <input type="file" id="video" name="video" accept="video/,image/" />
 
       <button type="submit">Submit Recipe</button>
     </form>
@@ -45,7 +45,5 @@
       <h3>Thank you! Your recipe has been submitted.</h3>
     </div>
   </div>
-
-  <script src="share.js"></script>
 </body>
 </html>

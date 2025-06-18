@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ recipe.name }} - EcoPantry</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/recipes-style.css') }}">
+</head>
+<body>
+  <div class="glass-container">
+    <nav class="navbar">
+      <div class="logo">EcoPantry</div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('fridge') }}">Home</a></li>
+        <li><a href="{{ url_for('recipes') }}">Back to Recipes</a></li>
+      </ul>
+    </nav>
+
+    <h1>{{ recipe.name }}</h1>
+    <img src="{{ url_for('static', filename=recipe.filename) }}" alt="Recipe Image" style="max-width:300px;">
+    <p><strong>Description:</strong> {{ recipe.desc }}</p>
+    <p><strong>Ingredients:</strong><br>{{ recipe.ingredients }}</p>
+    <p><strong>Instructions:</strong><br>{{ recipe.instructions }}</p>
+  </div>
+</body>
+</html>

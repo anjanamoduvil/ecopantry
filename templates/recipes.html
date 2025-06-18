@@ -26,8 +26,8 @@
     <section class="recipes" id="recipeList">
       {% for recipe in recipes %}
         <div class="recipe-card" data-name="{{ recipe.name | lower }}">
-          <a href="{{ recipe.page }}">
-            <img src="{{ url_for('static', filename='images/' + recipe.filename) }}" alt="{{ recipe.name }}">
+          <a href="{{ recipe.page }}">{{ recipe.name }}</a>
+            <img src="{{ url_for('static', filename='images/' + recipe.filename) if 'uploads/' not in recipe.filename else url_for('static', filename=recipe.filename) }}" alt="{{ recipe.name }}">
             <h3>{{ recipe.name }}</h3>
             <p>{{ recipe.desc }}</p>
           </a>
@@ -35,30 +35,30 @@
       {% endfor %}
     </section>
   </div>
-  <script src="{{ url_for('static', filename='css/js/recipes.js') }}"></script>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const recipeList = document.getElementById("recipeList");
+    const noResults = document.getElementById("noResults");
+
+    searchInput.addEventListener("input", async function () {
+      const query = this.value.trim().toLowerCase();
+      if (!query) {
+        document.querySelectorAll(".recipe-card").forEach(card => card.style.display = "block");
+        noResults.style.display = "none";
+        return;
+      }
+
+      const res = await fetch(/search_recipe?query=${encodeURIComponent(query)});
+      const data = await res.json();
+
+      document.querySelectorAll(".recipe-card").forEach(card => {
+        const name = card.getAttribute("data-name").toLowerCase();
+        card.style.display = name.includes(query) ? "block" : "none";
+      });
+
+      noResults.style.display = data.found ? "none" : "block";
+    });
+  </script>
 </body>
 </html>
-<script>
-  const searchInput = document.getElementById("searchInput");
-  const recipeList = document.getElementById("recipeList");
-  const noResults = document.getElementById("noResults");
-
-  searchInput.addEventListener("input", async function () {
-    const query = this.value.trim().toLowerCase();
-    if (!query) {
-      document.querySelectorAll(".recipe-card").forEach(card => card.style.display = "block");
-      noResults.style.display = "none";
-      return;
-    }
-
-    const res = await fetch(/search_recipe?query=${encodeURIComponent(query)});
-    const data = await res.json();
-
-    document.querySelectorAll(".recipe-card").forEach(card => {
-      const name = card.getAttribute("data-name").toLowerCase();
-      card.style.display = name.includes(query) ? "block" : "none";
-    });
-
-    noResults.style.display = data.found ? "none" : "block";
-  });
-</script>

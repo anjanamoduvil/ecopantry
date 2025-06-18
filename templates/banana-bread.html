@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Banana Bread Recipe | EcoPantry</title>
-  <link rel="stylesheet" href="banana-style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/banana-style.css') }}">
+
 </head>
 <body>
   <header>
@@ -50,12 +51,12 @@
     </div>
 
     <div class="recipe-images">
-      <img src="C:\Users\VICTUS\Downloads\banana-mash-closeup-shot-on-260nw-756777202-removebg-preview.png"alt="Step 1 - Mashed Banana" />
-      <img src="C:\Users\VICTUS\Downloads\F93BOSJHJKC4CA8-removebg-preview.png" alt="Step 2 - Batter Ready" />
-      <img src="C:\Users\VICTUS\Downloads\png-clipart-fruitcake-pumpkin-bread-banana-bread-food-chocolate-bread-baked-goods-baking-removebg-preview.png"alt="Step 3 - Finished Banana Bread" />
+       <img src="{{ url_for('static', filename='images/banana_mash.png') }}" alt="Ingredients" />
+       <img src="{{ url_for('static', filename='images/baking.png') }}" alt="Ingredients" />
+       <img src="{{ url_for('static', filename='images/banana.png') }}" alt="Ingredients" />
     </div>
   </main>
 
-  <script src="banana.js"></script>
+  <script src="{{ url_for('static', filename='css/js/banana.js') }}"></script>
 </body>
 </html>

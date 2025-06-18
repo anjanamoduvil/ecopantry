@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Quick Fried Rice - EcoPantry</title>
-  <link rel="stylesheet" href="quick-fried-rice.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/quick-fried-rice.css') }}">
+
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
@@ -55,13 +56,13 @@
       </section>
 
       <section class="image-section">
-        <img src="C:\Users\VICTUS\Downloads\Fried-Rice-Ingredients.jpg" alt="Ingredients" />
-        <img src="C:\Users\VICTUS\Downloads\istockphoto-149425094-612x612.jpg" alt="Cooking" />
-        <img src="C:\Users\VICTUS\Downloads\ai-generated-3d-rendering-of-a-fried-rice-in-a-plate-or-bowl-on-transparent-background-ai-generated-png-removebg-preview.png" alt="Finished Dish" />
+        <img src="{{ url_for('static', filename='images/Fried-Rice-Ingredients.jpg') }}" alt="Ingredients" />
+       <img src="{{ url_for('static', filename='images/cooking_fried_rice.jpg') }}" alt="Ingredients" />
+       <img src="{{ url_for('static', filename='images/fried_rice.png') }}" alt="Ingredients" />
       </section>
     </main>
   </div>
 
-  <script src="quick-fried-rice.js"></script>
+  <script src="{{ url_for('static', filename='css/js/salad-script.js') }}"></script>
 </body>
 </html>
