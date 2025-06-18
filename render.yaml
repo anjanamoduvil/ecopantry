@@ -1,9 +1,8 @@
-services:
-  - type: web
-    name: ecopantry
-    runtime: python
-    buildCommand: ""
-    startCommand: python app.py
-    envVars:
-      - key: FLASK_ENV
-        value: production
+build:
+  environment:
+    RUSTUP_HOME: /opt/render/.rustup
+    CARGO_HOME: /opt/render/.cargo
+  commands:
+    - curl https://sh.rustup.rs -sSf | sh -s -- -y
+    - export PATH="$CARGO_HOME/bin:$PATH"
+    - rustup target add x86_64-unknown-linux-gnu
